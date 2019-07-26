@@ -8,8 +8,11 @@ cd "$HOME"
 # yadm submodule update --recursive --init
 
 system_type=$(uname -s)
+BREW_PREFIX=$(brew --prefix)
 
 if [ "$system_type" = "Darwin" ]; then
+  # SDK headers
+  sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 
   # install homebrew if it's missing
   if ! command -v brew >/dev/null 2>&1; then
@@ -19,7 +22,9 @@ if [ "$system_type" = "Darwin" ]; then
 
   if [ -f "$HOME/.Brewfile" ]; then
     echo "Updating homebrew bundle"
+    brew update
     brew bundle --global
+    brew cleanup
   fi
 
   if [ -d "$HOME/.iterm2" ]; then
@@ -27,31 +32,29 @@ if [ "$system_type" = "Darwin" ]; then
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
   fi
 
+  if ! fgrep -q "/bin/zsh" /etc/shells; then
+    echo "/bin/zsh" | sudo tee -a /etc/shells;
+    chsh -s "/bin/zsh";
+  fi;
 
   echo "Setting up dock"
-  source ./dock.sh
+  source ./scripts/dock
 
   echo "Setting OSX defaults"
-  source ./macos.sh
-
-
-  echo "Setting Firefox as default"
-  open /Applications/Firefox\ Developer\ Edition.app/ -setDefaultBrowser
+  source ./scripts/macos
 
   echo "VS Code setup"
-  code --install-extension Shan.code-settings-sync
   ln -s $HOME/.vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
   ln -s $HOME/.vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
   ln -s $HOME/.vscode/snippets/ $HOME/Library/Application\ Support/Code/User
 
-  # default shell
+  echo "Python setup"
+  source ./scripts/python
 
-  # default terminal
+  echo "Setting Firefox as default"
+  open /Applications/Firefox\ Developer\ Edition.app/ -setDefaultBrowser
 
-  # default browser
 fi
-
-
 
 echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:elocke/dotfiles.git"

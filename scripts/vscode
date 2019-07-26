@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 code --install-extension 2gua.rainbow-brackets
 code --install-extension alexkrechik.cucumberautocomplete
 code --install-extension bajdzis.vscode-database
