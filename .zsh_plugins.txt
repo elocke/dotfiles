@@ -1,0 +1,23 @@
+zdharma/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
+#zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+
+zsh-users/zsh-completions
+
+# THEME
+#bhilburn/powerlevel9k
+denysdovhan/spaceship-prompt
+
+chrissicool/zsh-256color
+zsh-users/zsh-apple-touchbar
+zpm-zsh/ls
+zlsun/solarized-man
+eendroroy/zed-zsh
+marzocchi/zsh-notify
+aperezdc/virtualz
+
+# COMPLETIONS
+dbz/zsh-kubernetes
+srijanshetty/zsh-pip-completion
+littleq0903/gcloud-zsh-completion
