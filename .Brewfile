@@ -58,6 +58,7 @@ brew "zsh-completions"
 # Apps
 cask "dashlane"
 cask "docker"
+cask "firefox"
 cask "firefox-developer-edition"
 cask "font-firacode-nerd-font"
 cask "google-cloud-sdk"
@@ -72,6 +73,3 @@ cask "smcfancontrol"
 cask "spotify"
 cask "the-unarchiver"
 cask "visual-studio-code"
-
-# code --install-extension Shan.code-settings-sync
-

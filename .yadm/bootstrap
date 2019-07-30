@@ -32,6 +32,7 @@ if [ "$system_type" = "Darwin" ]; then
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
   fi
 
+	sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
   if ! fgrep -q "/bin/zsh" /etc/shells; then
     echo "/bin/zsh" | sudo tee -a /etc/shells;
     chsh -s "/bin/zsh";
@@ -52,7 +53,7 @@ if [ "$system_type" = "Darwin" ]; then
   source ./scripts/python
 
   echo "Setting Firefox as default"
-  open /Applications/Firefox\ Developer\ Edition.app/ -setDefaultBrowser
+  open /Applications/Firefox.app/ -setDefaultBrowser
 
 fi
 

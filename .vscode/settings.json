@@ -68,5 +68,7 @@
     "gitlens.views.fileHistory.location": "scm",
     "gitlens.views.lineHistory.location": "scm",
     "gitlens.views.compare.location": "scm",
-    "gitlens.views.search.location": "scm"
+    "gitlens.views.search.location": "scm",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "workbench.iconTheme": "material-icon-theme"
 }
