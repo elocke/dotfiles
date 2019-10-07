@@ -67,7 +67,11 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 test -d "${GOPATH}" || mkdir "${GOPATH}"
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
+# kubectl krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 decode_kubernetes_secret () {
   kubectl get secret $@ -o json | jq '.data | map_values(@base64d)'
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

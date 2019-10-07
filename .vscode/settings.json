@@ -70,5 +70,6 @@
     "gitlens.views.compare.location": "scm",
     "gitlens.views.search.location": "scm",
     "terminal.integrated.shell.osx": "/bin/zsh",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.smoothScrolling": true
 }
