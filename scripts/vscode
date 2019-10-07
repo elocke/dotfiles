@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 code --install-extension 2gua.rainbow-brackets
 code --install-extension alexkrechik.cucumberautocomplete
 code --install-extension bajdzis.vscode-database
@@ -33,6 +32,7 @@ code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension naumovs.color-highlight
 code --install-extension octref.vetur
 code --install-extension oderwat.indent-rainbow
+code --install-extension PKief.material-icon-theme
 code --install-extension redhat.vscode-yaml
 code --install-extension ryu1kn.partial-diff
 code --install-extension secanis.jenkinsfile-support
@@ -43,5 +43,3 @@ code --install-extension vscode-icons-team.vscode-icons
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension wholroyd.jinja
 code --install-extension yzhang.markdown-all-in-one
-
-code --install-extension pkief.material-icon-theme
