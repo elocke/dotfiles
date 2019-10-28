@@ -63,12 +63,13 @@ export PYTHONDONTWRITEBYTECODE=true
 export GOPATH="${HOME}/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
 
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 test -d "${GOPATH}" || mkdir "${GOPATH}"
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 # kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
 
 decode_kubernetes_secret () {
   kubectl get secret $@ -o json | jq '.data | map_values(@base64d)'
