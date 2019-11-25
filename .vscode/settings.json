@@ -71,5 +71,11 @@
     "gitlens.views.search.location": "scm",
     "terminal.integrated.shell.osx": "/bin/zsh",
     "workbench.iconTheme": "material-icon-theme",
-    "editor.smoothScrolling": true
+    "editor.smoothScrolling": true,
+    "squash.path": "/usr/local/bin/squashctl",
+    "squash.remotePath": "/Users/evan.locke/work/datastore/datastore_api",
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.allowGuestTaskControl": true,
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.anonymousGuestApproval": "accept"
 }

@@ -75,4 +75,16 @@ decode_kubernetes_secret () {
   kubectl get secret $@ -o json | jq '.data | map_values(@base64d)'
 }
 
+SPACESHIP_PROMPT_ADD_NEWLINE="true"
+SPACESHIP_CHAR_SYMBOL=" \uf0e7"
+SPACESHIP_CHAR_PREFIX="\uf296"
+SPACESHIP_CHAR_SUFFIX=(" ")
+SPACESHIP_CHAR_COLOR_SUCCESS="yellow"
+SPACESHIP_PROMPT_DEFAULT_PREFIX="$USER"
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="true"
+SPACESHIP_DOCKER_SHOW="false"
+
+alias ls=’colorls — light — sort-dirs — report’
+alias lc=’colorls — tree — light’
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
