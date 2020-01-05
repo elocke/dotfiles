@@ -59,6 +59,8 @@ bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
 export PYTHONDONTWRITEBYTECODE=true
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 export GOPATH="${HOME}/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
@@ -75,6 +77,10 @@ decode_kubernetes_secret () {
   kubectl get secret $@ -o json | jq '.data | map_values(@base64d)'
 }
 
+pyclean () {
+    find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
+}
+
 SPACESHIP_PROMPT_ADD_NEWLINE="true"
 SPACESHIP_CHAR_SYMBOL=" \uf0e7"
 SPACESHIP_CHAR_PREFIX="\uf296"
@@ -84,7 +90,6 @@ SPACESHIP_PROMPT_DEFAULT_PREFIX="$USER"
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="true"
 SPACESHIP_DOCKER_SHOW="false"
 
-alias ls=’colorls — light — sort-dirs — report’
-alias lc=’colorls — tree — light’
+alias ls=ls-go -alLn’
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

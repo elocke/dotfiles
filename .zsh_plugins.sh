@@ -6,6 +6,8 @@ source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-githu
 fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search )
 source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-completions/zsh-completions.plugin.zsh
 fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-completions )
+source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-supercrabtree-SLASH-k/k.plugin.zsh
+fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-supercrabtree-SLASH-k )
 source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-denysdovhan-SLASH-spaceship-prompt/spaceship.zsh
 fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-denysdovhan-SLASH-spaceship-prompt )
 source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-chrissicool-SLASH-zsh-256color/zsh-256color.plugin.zsh
