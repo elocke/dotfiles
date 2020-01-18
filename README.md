@@ -1,4 +1,4 @@
-# Evan's dotfiles
+# Noah's dotfiles
 
 ## Installation
 
@@ -54,9 +54,9 @@ brew bundle --file=~/.Brewfile
 ## Feedback
 
 Suggestions/improvements
-[welcome](https://github.com/elocke/dotfiles/issues)!
+[welcome](https://github.com/nhetrick-onX/dotfiles/issues)!
 
 ## Thanks to…
 
-* [Mathias Bynens](https://mathiasbynens.be/)
-* and a ton more people
+* [Evan Locke](http://evanlocke.me)
+* and others

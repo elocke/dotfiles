@@ -1,7 +1,6 @@
 {
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Monokai",
 
-    "editor.fontFamily": "'FuraCode Nerd Font Retina', 'FuraCode Nerd Font'",
     "editor.fontLigatures": true,
     "window.zoomLevel": 0,
     "telemetry.enableCrashReporter": false,
