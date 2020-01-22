@@ -52,6 +52,9 @@ if [ "$system_type" = "Darwin" ]; then
   echo "Python setup"
   source ./scripts/python
 
+  echo "Rust setup"
+  source ./scripts/rust
+
   echo "Setting Firefox as default"
   open /Applications/Firefox.app/ -setDefaultBrowser
 

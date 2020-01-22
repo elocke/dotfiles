@@ -26,8 +26,9 @@ fi
 
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
-
+fpath=(~/.zfunc $fpath)
 autoload -Uz compinit
+
 
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
@@ -104,3 +105,4 @@ alias lt='ls --tree'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

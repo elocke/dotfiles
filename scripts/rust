@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export PATH=$PATH:$HOME/.cargo/bin/
+if ! which rustup
+then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+rustup update
+rustup completions zsh > ~/.zfunc/_rustup
