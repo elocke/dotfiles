@@ -147,5 +147,7 @@
             "value": "#42b883"
         }
     ],
-    "terminal.integrated.scrollback": 100000
+    "terminal.integrated.scrollback": 100000,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.fontFamily": "'FuraCode Nerd Font Mono Retina', 'FuraCode Nerd Font Mono'"
 }

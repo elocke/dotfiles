@@ -42,6 +42,7 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 source /usr/local/etc/profile.d/z.sh
 
+# probably switch to this https://github.com/zdharma/zinit
 #source <(antibody init)
 #antibody bundle < ~/.zsh_plugins.txt
 # static loading >> antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
@@ -81,6 +82,9 @@ pyclean () {
     find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
 }
 
+# starship prompt
+# eval "$(starship init zsh)"
+
 SPACESHIP_PROMPT_ADD_NEWLINE="true"
 SPACESHIP_CHAR_SYMBOL=" \uf0e7"
 SPACESHIP_CHAR_PREFIX="\uf296"
@@ -90,6 +94,13 @@ SPACESHIP_PROMPT_DEFAULT_PREFIX="$USER"
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="true"
 SPACESHIP_DOCKER_SHOW="false"
 
-alias ls=ls-go -alLn’
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

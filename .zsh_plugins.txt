@@ -8,7 +8,8 @@ supercrabtree/k
 
 # THEME
 #bhilburn/powerlevel9k
-denysdovhan/spaceship-prompt
+romkatv/powerlevel10k
+#denysdovhan/spaceship-prompt
 
 chrissicool/zsh-256color
 zsh-users/zsh-apple-touchbar
