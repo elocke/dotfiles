@@ -44,6 +44,7 @@ brew "nano"
 brew "npm"
 brew "openssl"
 brew "pre-commit"
+brew "pipx"
 brew "pyenv"
 brew "pyenv-doctor"
 brew "pyenv-update"
@@ -87,3 +88,7 @@ cask "smcfancontrol"
 cask "spotify"
 cask "the-unarchiver"
 cask "visual-studio-code"
+
+
+mas "Day One", id: 1055511498
+mas "Bear", id: 1016366447
