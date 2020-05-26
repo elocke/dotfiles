@@ -106,3 +106,9 @@ alias lt='ls --tree'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# Created by `userpath` on 2020-04-18 06:55:11
+export PATH="$PATH:/Users/evan.locke/.local/bin"
+
+
+source "/Users/evan.locke/.local/share/dephell/_dephell_zsh_autocomplete"
