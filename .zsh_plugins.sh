@@ -25,8 +25,6 @@ source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-githu
 fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-marzocchi-SLASH-zsh-notify )
 source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-aperezdc-SLASH-virtualz/virtualz.plugin.zsh
 fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-aperezdc-SLASH-virtualz )
-source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-dbz-SLASH-zsh-kubernetes/kube-aliases.plugin.zsh
-fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-dbz-SLASH-zsh-kubernetes )
 source /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-srijanshetty-SLASH-zsh-pip-completion/zsh-pip-completion.plugin.zsh
 fpath+=( /Users/evan.locke/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-srijanshetty-SLASH-zsh-pip-completion )
 

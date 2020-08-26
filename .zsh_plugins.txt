@@ -20,6 +20,6 @@ marzocchi/zsh-notify
 aperezdc/virtualz
 
 # COMPLETIONS
-dbz/zsh-kubernetes
+# dbz/zsh-kubernetes
 srijanshetty/zsh-pip-completion
 littleq0903/gcloud-zsh-completion

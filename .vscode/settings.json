@@ -88,8 +88,10 @@
         ]
     },
     "terraform.languageServer": {
-        "enabled": true,
-        "args": []
+        "external": true,
+        "args": [
+            "serve"
+        ]
     },
     "python.formatting.blackPath": "/Users/evan.locke/.pyenv/versions/python3-utils/bin/black",
     "python.linting.pylintEnabled": false,
@@ -197,5 +199,7 @@
         "datastore",
         "kubernetes",
         "pubsub"
-    ]
+    ],
+    "python.languageServer": "Pylance",
+    "sonarlint.ls.javaHome": "/Users/evan.locke/.vscode/extensions/sonarsource.sonarlint_managed-jre/jre/jdk-11.0.8+10-jre/Contents/Home"
 }

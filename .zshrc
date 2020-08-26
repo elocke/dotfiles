@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -46,7 +48,7 @@ source /usr/local/etc/profile.d/z.sh
 # probably switch to this https://github.com/zdharma/zinit
 #source <(antibody init)
 #antibody bundle < ~/.zsh_plugins.txt
-# static loading >> antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+# static loading >> `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
 source ~/.zsh_plugins.sh
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
@@ -74,6 +76,14 @@ test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 # kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
+
+function kubectl() {
+    if ! type __start_kubectl >/dev/null 2>&1; then
+        source <(command kubectl completion zsh)
+    fi
+
+    command kubectl "$@"
+}
 
 decode_kubernetes_secret () {
   kubectl get secret $@ -o json | jq '.data | map_values(@base64d)'
@@ -112,3 +122,5 @@ export PATH="$PATH:/Users/evan.locke/.local/bin"
 
 
 source "/Users/evan.locke/.local/share/dephell/_dephell_zsh_autocomplete"
+
+# zprof  # Profile start times
