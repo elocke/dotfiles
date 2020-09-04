@@ -1,2 +1,12 @@
 #!/usr/bin/env bash
 
+PYTHON_VERSION=3.8.5
+pyenv install 3.7.8
+pyenv install $PYTHON_VERSION
+pyenv global $PYTHON_VERSION
+
+
+PIPX="pipx install --python $PYTHON_VERSION "
+$PIPX black
+$PIPX pre-commit
+$PIPX mypy

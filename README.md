@@ -19,12 +19,6 @@ cd ~
 yadm clone https://github.com/elocke/dotfiles.git
 ```
 
-To update, `cd` into your local `dotfiles` repository and then:
-
-```bash
-source bootstrap.sh
-```
-
 ## Components
 
 These are run automatically by the bootstrap script.
