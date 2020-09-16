@@ -4,7 +4,7 @@
 
 **Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
-### Install git and yadm
+### Getting started
 
 ```bash
 
@@ -12,12 +12,18 @@ curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master
 xcode-select --install
 ```
 
-### Clone repo
-
 ```bash
 cd ~
 yadm clone https://github.com/elocke/dotfiles.git
 ```
+
+If the bootstrap script doesn't start:
+
+```bash
+yadm bootstrap
+```
+
+It does a bunch of stuff including running the scripts found in the /scripts folder
 
 ## Components
 
