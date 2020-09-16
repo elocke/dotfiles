@@ -1,11 +1,16 @@
+# zmodload zsh/zprof
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-zmodload zsh/zprof
+
+export EDITOR="code -w"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -25,6 +30,14 @@ zstyle ':completion:*' group-name '' # group results by category
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
 # End of lines configured by zsh-newuser-install
 
+# probably switch to this https://github.com/zdharma/zinit
+#source <(antibody init)
+#antibody bundle < ~/.zsh_plugins.txt
+# static loading >> `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
+source ~/.zsh_plugins.sh
+
+lazyenv-enabled
+
 # Load aliases
 if [ -f ~/.aliases ]; then
     . ~/.aliases
@@ -36,9 +49,8 @@ fi
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zfunc $fpath)
+
 autoload -Uz compinit
-
-
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
   compinit -i
@@ -48,22 +60,13 @@ fi
 # End of lines added by compinstall
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 source /usr/local/etc/profile.d/z.sh
 
-# probably switch to this https://github.com/zdharma/zinit
-#source <(antibody init)
-#antibody bundle < ~/.zsh_plugins.txt
-# static loading >> `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
-source ~/.zsh_plugins.sh
-
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+# Google
+# source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+# source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # zsh history substring search arrow u/d binding
 bindkey '^[[A' history-substring-search-up
@@ -74,27 +77,19 @@ bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
 export PYTHONDONTWRITEBYTECODE=true
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 export GOPATH="${HOME}/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
-
 export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
-test -d "${GOPATH}" || mkdir "${GOPATH}"
-test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+# test -d "${GOPATH}" || mkdir "${GOPATH}"
+# test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 # kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
 
-function kubectl() {
-    if ! type __start_kubectl >/dev/null 2>&1; then
-        source <(command kubectl completion zsh)
-    fi
+export PATH="$PATH:/Users/evan.locke/.local/bin"
 
-    command kubectl "$@"
-}
 
 decode_kubernetes_secret () {
   kubectl get secret $@ -o json | jq '.data | map_values(@base64d)'
@@ -104,34 +99,22 @@ pyclean () {
     find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
 }
 
-# starship prompt
-# eval "$(starship init zsh)"
-
-SPACESHIP_PROMPT_ADD_NEWLINE="true"
-SPACESHIP_CHAR_SYMBOL=" \uf0e7"
-SPACESHIP_CHAR_PREFIX="\uf296"
-SPACESHIP_CHAR_SUFFIX=(" ")
-SPACESHIP_CHAR_COLOR_SUCCESS="yellow"
-SPACESHIP_PROMPT_DEFAULT_PREFIX="$USER"
-SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="true"
-SPACESHIP_DOCKER_SHOW="false"
-
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
+alias cat='bat'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias dircolors='gdircolors'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-# Created by `userpath` on 2020-04-18 06:55:11
-export PATH="$PATH:/Users/evan.locke/.local/bin"
-
-
-source "/Users/evan.locke/.local/share/dephell/_dephell_zsh_autocomplete"
 
 # zprof  # Profile start times

@@ -4,22 +4,24 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 
 zsh-users/zsh-completions
-supercrabtree/k
+# supercrabtree/k
 
 # THEME
-#bhilburn/powerlevel9k
 romkatv/powerlevel10k
 #denysdovhan/spaceship-prompt
 
 chrissicool/zsh-256color
-zsh-users/zsh-apple-touchbar
-zpm-zsh/ls
+# zsh-users/zsh-apple-touchbar
+#zpm-zsh/ls
 zlsun/solarized-man
 eendroroy/zed-zsh
-marzocchi/zsh-notify
-aperezdc/virtualz
+#marzocchi/zsh-notify
+#aperezdc/virtualz
 
 # COMPLETIONS
 # dbz/zsh-kubernetes
 srijanshetty/zsh-pip-completion
-littleq0903/gcloud-zsh-completion
+# littleq0903/gcloud-zsh-completion
+
+black7375/zsh-lazyenv
+

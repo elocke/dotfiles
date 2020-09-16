@@ -1,6 +1,6 @@
 [user]
 	name = Evan Locke
-	email = evan.locke@onxmaps.com
+	email = evan.locke@cybergrx.com
 
-[url "git@gitlab.com/onxmaps:"]
- insteadOf = https://gitlab.com/onxmaps/
+[url "git@gitlab.com/cybergrx:"]
+ insteadOf = https://gitlab.com/cybergrx/
