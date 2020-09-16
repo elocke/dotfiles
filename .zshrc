@@ -62,7 +62,8 @@ fi
 
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
-source /usr/local/etc/profile.d/z.sh
+# source /usr/local/etc/profile.d/z.sh
+eval "$(zoxide init zsh)"
 
 # Google
 # source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
@@ -111,6 +112,7 @@ alias egrep='egrep --color=auto'
 alias dircolors='gdircolors'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias du="dust"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

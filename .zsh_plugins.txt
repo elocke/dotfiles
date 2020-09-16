@@ -2,26 +2,18 @@ zdharma/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
 #zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
-
-zsh-users/zsh-completions
-# supercrabtree/k
+#marlonrichert/zsh-autocomplete # https://github.com/marlonrichert/zsh-autocomplete/issues/95
 
 # THEME
 romkatv/powerlevel10k
+joel-porquet/zsh-dircolors-solarized
+chrissicool/zsh-256color
+zlsun/solarized-man
+
 #denysdovhan/spaceship-prompt
 
-chrissicool/zsh-256color
-# zsh-users/zsh-apple-touchbar
-#zpm-zsh/ls
-zlsun/solarized-man
-eendroroy/zed-zsh
-#marzocchi/zsh-notify
-#aperezdc/virtualz
-
 # COMPLETIONS
-# dbz/zsh-kubernetes
+zsh-users/zsh-completions
 srijanshetty/zsh-pip-completion
-# littleq0903/gcloud-zsh-completion
-
 black7375/zsh-lazyenv
 
