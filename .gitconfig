@@ -2,6 +2,8 @@
   path = .gitconfig-personal
 [includeIf "gitdir:work/"]
   path = .gitconfig-work
+[includeIf "gitdir:git/"]
+  path = .gitconfig-work
 
 [alias]
 
@@ -72,6 +74,11 @@
 	# if a branch name is specified, on top of the specified branch
 	#mpr = "!f() { \"
 
+	home = rev-parse --show-toplevel
+	merge-commits = "!funct() { git log --merges --reverse --oneline --ancestry-path $1..origin | grep \"Merge pull request\";  }; funct"
+	pr-number = "!funct() { git merge-commits $1 | head -n1 | sed -n \"s/^.*Merge pull request #\\\\s*\\\\([0-9]*\\\\).*$/\\\\1/p\"; }; funct"
+	web-url = "!funct() { git config remote.origin.url | sed -e\"s/git@/https:\\/\\//\" -e\"s/\\.git$//\" | sed -E \"s/(\\/\\/[^:]*):/\\1\\//\"; }; funct"
+	pr = "!funct() { open \"`git web-url`/pull/`git pr-number $1`\" ;}; funct"
 [core]
 
 	# Use custom `.gitignore` and `.gitattributes`
@@ -94,6 +101,8 @@
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
+
+    pager = delta --24-bit-color=always
 
 [color]
 
@@ -124,16 +133,6 @@
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = false
-
-[diff]
-
-	# Detect copies as well as renames
-	renames = copies
-
-[diff "bin"]
-
-	# Use `hexdump` to diff binary files
-	textconv = hexdump -v -C
 
 [help]
 
@@ -174,3 +173,52 @@
 
 	insteadOf = "gist:"
 
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Solarized (dark)
+    navigate = true
+    features = decorations
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[interactive]
+    diffFilter = delta --24-bit-color=always --features=interactive decorations
+
+[feature]
+	manyFiles = true
+
+
+[diff]
+    tool = difft
+    colorMoved = default
+    external = difft
+
+	# Detect copies as well as renames
+	renames = copies
+
+[diff "bin"]
+	# Use `hexdump` to diff binary files
+	textconv = hexdump -v -C
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
+[core]
+    pager = delta
+
+[pager]
+    difftool = true

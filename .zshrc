@@ -89,8 +89,8 @@ export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
 
-export PATH="$PATH:/Users/evan.locke/.local/bin"
-
+export PATH="/Users/evan.locke/.local/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 decode_kubernetes_secret () {
   kubectl get secret $@ -o json | jq '.data | map_values(@base64d)'
@@ -112,11 +112,28 @@ alias egrep='egrep --color=auto'
 alias dircolors='gdircolors'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias .,='cd $(git home)'
 alias du="dust"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-
+# awsvault use computer password
+export AWS_VAULT_KEYCHAIN_NAME=login
+# export KUBECONFIG=~/.kube/config:~/.kube/grx-staging:~/.kube/grx-core:~/.kube/grx-production
+export KUBECONFIG=~/.kube/config
 
 # zprof  # Profile start times
+
+
+function grx-auth() {
+    curl -L -d "{\"email\": \"${2}\", \"password\": \"${3}\"}" -H "Content-Type: application/json" -X POST http://${1}/api/aaa/api-token-auth/ | jq '.token' -r | awk '{print "JWT "$1}' | pbcopy
+}
+alias 'grx-auth-local'='grx-auth localhost:8081'
+alias 'grx-auth-local-c2'='grx-auth-local customer2@example.com password'
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/kustomize kustomize
+
+source ~/.zshrc-grx
+export PATH="/usr/local/opt/kubernetes-cli@1.22/bin:$PATH"
+
+source /Users/evan.locke/.config/broot/launcher/bash/br
